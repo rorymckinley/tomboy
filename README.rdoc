@@ -1,6 +1,6 @@
 = tomboy
 
-Description goes here.
+Tomboy is a ruby interface that will allow Tomboy format notes to be read ad new notes to be created using the Tomboy xml format
 
 == Note on Patches/Pull Requests
  
