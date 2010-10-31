@@ -1,14 +1,8 @@
 <?xml version="1.0"?>
 
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://beatniksoftware.com/tomboy" attributeFormDefault="unqualified" elementFormDefault="qualified">
-  <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="http://www.w3.org/2001/xml.xsd" />
-  <xs:complexType name="ntcnt">
-                      <xs:simpleContent>
-                        <xs:extension base="xs:string">
-                          <xs:attribute name="version" type="xs:string" fixed="0.1"/>
-                        </xs:extension>
-                      </xs:simpleContent>
-  </xs:complexType>
+  <!--<xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="http://www.w3.org/2001/xml.xsd" />-->
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="__REL_FILE_PATH__/xml.xsd" />
   <xs:element xmlns="http://beatniksoftware.com/tomboy" name="note">
     <xs:complexType>
       <xs:sequence>
@@ -19,17 +13,17 @@
                     <xs:complexType>
                       <xs:simpleContent>
                         <xs:extension base="xs:string">
-                          <xs:attribute name="version" type="xs:string" fixed="0.1"/>
+                          <xs:attribute name="version" type="xs:string" fixed="0.1" use="required"/>
                         </xs:extension>
                       </xs:simpleContent>
                     </xs:complexType>
                   </xs:element>
                 </xs:sequence>
-                <xs:attribute ref="xml:space"/>
+                <xs:attribute ref="xml:space" fixed="preserve" use="required"/>
           </xs:complexType>
         </xs:element>
       </xs:sequence>
-      <xs:attribute name="version" type="xs:string" fixed="0.3"/>
+      <xs:attribute name="version" type="xs:string" fixed="0.3" use="required"/>
     </xs:complexType>
   </xs:element>
 </xs:schema>

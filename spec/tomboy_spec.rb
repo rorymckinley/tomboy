@@ -34,7 +34,9 @@ describe "Writing to a Tomboy note file" do
 
   it "should create the note so that it complies with the Tomboy XML schema" do
     schema_contents = IO.read(File.join(File.dirname(__FILE__), 'fixtures', 'valid_note.xsd'))
+    schema_contents.gsub!(/__REL_FILE_PATH__/, File.join(File.dirname(__FILE__), 'fixtures'))
     schema = Nokogiri::XML::Schema.new(schema_contents)
+
     Tomboy.write('This is my fixture content', @written_note_path)
 
     written_xml = nil

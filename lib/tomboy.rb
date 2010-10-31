@@ -27,7 +27,7 @@ class Tomboy
   def self.seed_template_with(note_content)
     Nokogiri::XML::Builder.new(:encoding => 'utf-8') do |xml|
       xml.note( 'version' => "0.3", 'xmlns:link' => "http://beatniksoftware.com/tomboy/link", 'xmlns:size'=> "http://beatniksoftware.com/tomboy/size", 'xmlns' => "http://beatniksoftware.com/tomboy") do
-        xml.text_ ('xml:space' => 'preserve') do
+        xml.text_('xml:space' => 'preserve') do
           xml.send("note-content".to_sym, note_content, 'version' => "0.1")
         end
       end
