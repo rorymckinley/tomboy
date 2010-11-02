@@ -27,14 +27,19 @@ describe "Writing to a Tomboy note file" do
   end
 
   it "should create a tomboy note from a simple string" do
-    t = Tomboy.write('This is my fixture content', @written_note_path)
+    t = Tomboy.write('This is my title', 'This is my fixture content', @written_note_path)
     t.should be_an_instance_of Tomboy
     t.content.should == 'This is my fixture content'
   end
 
   it "should create the note in the location specified" do
-    Tomboy.write('This is my fixture content', @written_note_path)
+    Tomboy.write('This is my title', 'This is my fixture content', @written_note_path)
     File.exist?(@written_note_path).should be_true
+  end
+
+  it "should set the title of the note" do
+    t = Tomboy.write('This is a title', 'This is my content', @written_note_path)
+    t.title.should == 'This is a title'
   end
 
   it "should create the note so that it complies with the Tomboy XML schema" do
@@ -42,7 +47,7 @@ describe "Writing to a Tomboy note file" do
     schema_contents.gsub!(/__REL_FILE_PATH__/, File.join(File.dirname(__FILE__), 'fixtures'))
     schema = Nokogiri::XML::Schema.new(schema_contents)
 
-    Tomboy.write('This is my fixture content', @written_note_path)
+    Tomboy.write('This is my title', 'This is my fixture content', @written_note_path)
 
     written_xml = nil
 
