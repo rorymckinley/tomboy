@@ -9,8 +9,13 @@ describe "Reading a Tomboy note file" do
   it "should instantiate itself based on an existing Tomboy note file" do
     Tomboy.read(@note_path).should be_an_instance_of Tomboy
   end
+
   it "should instantiate itself and contain the content of the tomboy note" do
     Tomboy.read(@note_path).content.should == 'This is my fixture content'
+  end
+
+  it "should be able to return the title of the note" do
+    Tomboy.read(@note_path).title.should == 'This is my fixture title'
   end
 end
 
@@ -45,7 +50,6 @@ describe "Writing to a Tomboy note file" do
       written_xml = Nokogiri::XML(file)
     end
 
-    puts schema.validate(written_xml)
     schema.valid?(written_xml).should be_true
   end
 end

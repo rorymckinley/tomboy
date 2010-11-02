@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <note version="0.3" xmlns:link="http://beatniksoftware.com/tomboy/link" xmlns:size="http://beatniksoftware.com/tomboy/size" xmlns="http://beatniksoftware.com/tomboy">
-  <title>This is my fixture content</title>
+  <title>This is my fixture title</title>
   <text xml:space="preserve"><note-content version="0.1">This is my fixture content</note-content></text>
   <last-change-date>2010-09-05T21:54:29.8579590+02:00</last-change-date>
   <last-metadata-change-date>2010-09-05T21:54:29.8579590+02:00</last-metadata-change-date>

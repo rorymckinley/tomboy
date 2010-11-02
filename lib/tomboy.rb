@@ -8,12 +8,19 @@ class Tomboy
     end
     tomboy
   end
+
   def initialize(note_obj)
     @note_obj = note_obj
   end
+
   def content
     @note_obj.xpath('//bns:note-content', { "bns" => "http://beatniksoftware.com/tomboy"}).text
   end
+
+  def title
+    @note_obj.xpath('//bns:title', { "bns" => "http://beatniksoftware.com/tomboy"}).text
+  end
+
   def self.write(note_content, note_path)
     xml_builder = seed_template_with note_content
     File.open(note_path, 'w') do |file|
